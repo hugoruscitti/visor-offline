@@ -1,6 +1,6 @@
 {
   "name": "visor-offline",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Small description for visor-offline goes here",
   "private": true,
   "directories": {
@@ -16,7 +16,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Hugo Ruscitti <hugoruscitti@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
@@ -71,7 +71,7 @@
     "ignore": null,
     "out": null,
     "osx-sign": {
-      "identity": null,
+      "identity": "Hugo Ruscitti",
       "entitlements": null,
       "entitlements-inherit": null
     },
@@ -79,7 +79,7 @@
     "prune": null,
     "strict-ssl": null,
     "version-string": {
-      "CompanyName": null,
+      "CompanyName": "Hugo Ruscitti",
       "FileDescription": null,
       "OriginalFilename": null,
       "ProductName": null,
