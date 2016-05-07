@@ -21,6 +21,5 @@ for x in os.listdir(video_path):
   if x.lower().endswith('.mp4'):
     print("Creando miniatura para: '%s'" %(x))
     video_input = os.path.join(video_path, x)
-    print video_input
     file_output = os.path.join(video_path, "thumbs", os.path.basename(video_input).replace(".mp4", ".jpg"))
     os.system("ffmpegthumbnailer -i '%s' -o '%s' -s400" %(video_input, file_output))
