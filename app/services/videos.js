@@ -19,18 +19,19 @@ export default Ember.Service.extend({
 
 
       fs.readdir(path, (error, data) => {
-        let items_initial = data.filter(function(e) {
+
+        let items_initial = data.filter((e) => {
           return (e.indexOf(".mp4") > -1);
         });
 
-        let items = items_initial.map(function(file) => {
+        let items = items_initial.map((file) => {
           let title = file.replace(".mp4", "");
 
           return {
             title: title,
             img: title + ".jpg",
             video: file
-          }
+          };
         });
 
 
@@ -39,7 +40,7 @@ export default Ember.Service.extend({
 
         resolve(items);
 
-      })
+      });
 
     });
   }
