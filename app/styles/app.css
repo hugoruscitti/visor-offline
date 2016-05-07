@@ -53,29 +53,27 @@ video {
 }
 
 
-#video-wrap {
-    position: fixed;
-    left: 5px;
-    top: 45px;
-    width: 90%;
-    height: 90%;
-    bottom: 5px;
-}
-
-#video {
-    position: absolute;
-    top: -9999px;
-    bottom: -9999px;
-    left: -9999px;
-    right: -9999px;
-    margin: auto;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-}
-
-
 .mensaje-error {
   padding: 3em;
+}
+
+.return-button {
+  font-size: 20px;
+  color: white;
+  text-shadow: 0 0 4px black;
+}
+
+.return-button:hover {
+  color: yellow;
+}
+
+
+.page-video {
+  background-color: black;
+  position:fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: scroll;
 }

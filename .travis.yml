@@ -1,27 +1,35 @@
----
 language: node_js
 node_js:
-  - "4"
+- '4'
 sudo: true
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-  - sudo apt-get install python-software-properties
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt-get update
-  - sudo apt-get install gcc-5 g++-5
-  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 80 --slave /usr/bin/g++ g++ /usr/bin/g++-5
-  - sudo update-alternatives --set gcc /usr/bin/gcc-5
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
+- sudo apt-get install python-software-properties
+- sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+- sudo apt-get update
+- sudo apt-get install gcc-5 g++-5
+- sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 80 --slave /usr/bin/g++
+  g++ /usr/bin/g++-5
+- sudo update-alternatives --set gcc /usr/bin/gcc-5
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+before_deploy:
+  - sh crear_binarios.sh
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: QCDEUqY3ZUhcL+8n46MN0lIVsY2fUU+6X/C3PWFZ9DGR/zqnb8fBCqggu06/5flSBhTgac7dE4qp2vbNRzW7DaYLFoP+ApzbcI3szaElaeFjBfin/ziW8evIQUKqtqgd4HJPBJI5xP9+AGVoi4/GF4hZWAav70CIIKjXJcTOfu6oMYI5jlpQO08uneP9UtXwQxX7VWGmOLspfP7AEe578mJ0HZ8s4C0mtYPqJisnh70kNGLrqAWuoFYssClhz7GYNvmO+oMbDt5/GaSW92pN3mVoWJWSVAgGGSkK0hDgfkcFAl4kDHhP+zD7mbMfOidnC7iLfH0WH2D4lEXeDkN0em2h8gIl0z0RrFQqNYv5ys71ZX4fvP0YL1I3Y4m+TjSJj49JXosFZ0b5LWKnLWjhUhZDY1TNVe3YLnT2KtHqz18QtpuN/PmdaginlXlMrR443MHg6itSna9+Yx4hpvwWVyi0F9ISYd40Iu/xOg6VY5Wk5Azf6AWR1tzFyOgzc2G9RzNoZA4PRylcf2nVVMugrGBA0wVyHCJYvfcXj23wlB+lW/c4DUJJTSlQb/4IY2CXvq2+HhjgQ3qZDe4y9F+2OCPz7PQEbH/4nuAth1VFm4FfK0Ul498QxdmopFkBHGo6HI3bf3o5A+cafNfN/q7XwVACI9MyEW9i+Yb/TBFV+H4=
+  file: 
+    - "visor-offline-windows-32bits.zip"
+    - "visor-offline-windows-64bits.zip"
+  on:
+    tags: true

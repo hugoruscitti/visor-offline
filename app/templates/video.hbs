@@ -1,8 +1,9 @@
-<div class="acciones">
-  {{#link-to "index"}}Volver{{/link-to}}
-</div>
+<div class="page-video">
 
+  <div class="acciones">
+    {{#link-to "index" class="return-button"}}<span class="glyphicon glyphicon-chevron-left"></span>{{/link-to}}
+  </div>
 
-<div id="video-wrap">
-  <video id="video" src={{model.video}} autoplay controls poster={{model.img}}></video>
+  <video id="video-bg" src={{model.video}} autoplay controls poster={{model.img}}></video>
+
 </div>
