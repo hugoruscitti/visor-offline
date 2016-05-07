@@ -1,0 +1,76 @@
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.video-thumb {
+  display: inline-block;
+  width: 400px;
+  height: 200px;
+  overflow: hidden;
+
+  background: black;
+  margin: 10px;
+  border: 1px solid grey;
+  position: relative;
+}
+
+.video-thumb img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.video-thumb .title {
+  position :absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  left: 0;
+  right: 0;
+  padding: 3px;
+  text-align: center;
+  height: 25px;
+}
+
+
+.acciones {
+  text-align: left;
+  padding: 1em;
+  position:absolute;
+  top:0;
+  z-index:10;
+}
+
+video {
+  width: 100%;
+}
+
+
+.text-right {
+  text-align: right !important;
+}
+
+
+#video-wrap {
+    position: fixed;
+    left: 5px;
+    top: 45px;
+    width: 90%;
+    height: 90%;
+    bottom: 5px;
+}
+
+#video {
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+}

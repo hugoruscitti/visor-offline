@@ -1,6 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
+
+  getByID(videoID) {
+    return new Ember.RSVP.Promise((resolve) => {
+      this.getVideos().then((data) => {
+        resolve(data.findBy("id", videoID));
+      });
+    });
+  },
+
   getVideos() {
     return new Ember.RSVP.Promise((resolve) => {
       let fs = requireNode("fs");
@@ -28,9 +37,10 @@ export default Ember.Service.extend({
           let title = file.replace(".mp4", "");
 
           return {
+            id: title,
             title: title,
-            img: title + ".jpg",
-            video: file
+            img: path + "/thumbs/" + title + ".jpg",
+            video: path + "/" + file
           };
         });
 
