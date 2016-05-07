@@ -11,5 +11,9 @@ test('it renders', function(assert) {
 
   //this.render(hbs`{{v-videos}}`);
   //assert.ok(this.$(":contains('ppeddpe')"), "Debe indicar que no anda bien.");
+
+  // this.set('videos', [{id: 123, title: "pepe"}]);
+  //this.render(hbs`{{v-videos}}`);
+  //assert.ok(this.$(":contains('pepe')"), "al menos uno tiene que decir pepe");
   assert.ok(true);
 });
