@@ -39,7 +39,6 @@
     "ember-data": "^2.4.2",
     "ember-electron": "1.4.3",
     "ember-export-application-global": "^1.0.5",
-    "ember-img-manager": "0.0.12",
     "ember-inspector": "1.10.0",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
