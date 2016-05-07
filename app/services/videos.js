@@ -1,5 +1,8 @@
 import Ember from 'ember';
 
+var path = requireNode("path");
+var fs = requireNode("fs");
+
 export default Ember.Service.extend({
 
   getByID(videoID) {
@@ -10,24 +13,34 @@ export default Ember.Service.extend({
     });
   },
 
+  _get_video_path() {
+    let videoPath;
+
+    if (fs.existsSync("C:/videos")) {
+      videoPath = "c:/videos";
+    } else {
+      let videoPathInLinuxOrOSX = path.join(process.env.HOME, 'videos');
+
+      if (fs.existsSync(videoPathInLinuxOrOSX)) {
+        videoPath = videoPathInLinuxOrOSX;
+      } else {
+        videoPath = null;
+      }
+    }
+
+    return videoPath;
+  },
+
   getVideos() {
     return new Ember.RSVP.Promise((resolve) => {
-      let fs = requireNode("fs");
-      let path = null;
+      let videoPath = this._get_video_path();
 
-      if (fs.existsSync("C:/videos")) {
-        path = "c:/videos";
-      } else {
-        if (fs.existsSync("/Users/hugoruscitti/Desktop/videos infantiles")) {
-          path = "/Users/hugoruscitti/Desktop/videos\ infantiles";
-        } else {
-          path = __dirname;
-        }
+      if (!videoPath) {
+        resolve([]);
+        return;
       }
 
-
-
-      fs.readdir(path, (error, data) => {
+      fs.readdir(videoPath, (error, data) => {
 
         let items_initial = data.filter((e) => {
           return (e.indexOf(".mp4") > -1);
@@ -39,14 +52,10 @@ export default Ember.Service.extend({
           return {
             id: title,
             title: title,
-            img: path + "/thumbs/" + title + ".jpg",
-            video: path + "/" + file
+            img: videoPath + "/thumbs/" + title + ".jpg",
+            video: videoPath + "/" + file
           };
         });
-
-
-        console.log(items);
-
 
         resolve(items);
 
