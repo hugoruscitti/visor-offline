@@ -12,9 +12,9 @@ let mainWindow = null;
 electron.crashReporter.start();
 
 app.on('window-all-closed', function onWindowAllClosed() {
-    if (process.platform !== 'darwin') {
+    //if (process.platform !== 'darwin') {
         app.quit();
-    }
+    //}
 });
 
 app.on('ready', function onReady() {
