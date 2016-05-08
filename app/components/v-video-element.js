@@ -5,8 +5,8 @@ export default Ember.Component.extend({
     let video = this.$("video");
 
     window.onresize = () => {
-      let width = video.width();
-      let height = video.height();
+      //let width = video.width();
+      //let height = video.height();
       let ratio = 0.98;
 
       let newWidth = window.innerWidth * ratio;

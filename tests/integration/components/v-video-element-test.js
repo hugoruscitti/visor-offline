@@ -11,14 +11,6 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{v-video-element}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.ok(this.$());
 
-  // Template block usage:
-  this.render(hbs`
-    {{#v-video-element}}
-      template block text
-    {{/v-video-element}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
