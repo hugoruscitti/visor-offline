@@ -4,6 +4,7 @@
     {{#link-to "index" class="return-button"}}<span class="glyphicon glyphicon-chevron-left"></span>{{/link-to}}
   </div>
 
-  <video id="video-bg" src={{model.video}} autoplay controls poster={{model.img}}></video>
+  {{v-videoElement model=model}}
+
 
 </div>
