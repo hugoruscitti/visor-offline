@@ -85,3 +85,7 @@ video {
   right: 0;
   overflow-y: hidden;
 }
+
+video::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
