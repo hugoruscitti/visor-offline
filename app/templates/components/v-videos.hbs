@@ -1,7 +1,15 @@
 {{#each videos as |video|}}
   {{v-videoThumb video=video}}
 {{else}}
-  <p>Lo siento, no hay videos para mostrar.</p>
-  <p>Por favor almacená los videos en c:\videos para que se
-    puedan visualizar aquí</p>
+
+  <div class="mensaje-error">
+    <p>Lo siento, no hay videos para mostrar.</p>
+
+    <p>Por favor almacená los videos que quieras visualizar
+      en <code>c:\videos</code> (o en <code>$HOME/videos</code> en linux y osx).
+    </p>
+
+    <p>Luego reiniciá la aplicación.</p>
+  </div>
+
 {{/each}}

@@ -12,21 +12,21 @@ let mainWindow = null;
 electron.crashReporter.start();
 
 app.on('window-all-closed', function onWindowAllClosed() {
-    if (process.platform !== 'darwin') {
+    //if (process.platform !== 'darwin') {
         app.quit();
-    }
+    //}
 });
 
 app.on('ready', function onReady() {
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600
+        width: 1024,
+        height: 700
     });
 
     delete mainWindow.module;
 
     // If you want to open up dev tools programmatically, call
-    mainWindow.openDevTools();
+    //mainWindow.openDevTools();
 
     // By default, we'll open the Ember App by directly going to the
     // file system.
